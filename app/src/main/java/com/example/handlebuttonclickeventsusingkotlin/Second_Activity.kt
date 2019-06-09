@@ -20,9 +20,13 @@ class Second_Activity : AppCompatActivity() {
 //second way get text from intent
 
         val bundle:Bundle?=intent.extras
-        var message:String= bundle!!.getString("value")
 
-        textView_second.text=message;
+//if bundle is null the  code won't be executed
+        bundle?.let {
+            var message:String= bundle!!.getString("value")
+            textView_second.text=message
+        }
+
 
     }
     fun shareData(view:View){
